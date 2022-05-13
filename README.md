@@ -1,7 +1,7 @@
 
 # rockpaperscissors website application
+# This was a project done for the odin project curriculum.
 
-This was a project done for the odin project curriculum.
 The game is simple, win the most out of 5 rounds of rock paper scissors.  If you don't, you simply lose.
 ![image](https://user-images.githubusercontent.com/57457270/168398739-d1b5ddfb-d6fd-4aee-9062-2164e36df8a3.png)
 
