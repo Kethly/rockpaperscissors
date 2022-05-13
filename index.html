@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Rock Paper Scissors Showdown</title>
+        <link href='https://fonts.googleapis.com/css?family=Coiny' rel='stylesheet'>
+        <link rel="stylesheet" href="./index.css">
+        <script src="index.js"></script>
+        <style>
+            body{
+                font-family:'Coiny';
+            }
+        </style>
+    </head>
+    <body>
+        <div class="title">
+            <h1>Rock Paper Scissors Showdown</h1>
+            <h2>Get the most wins out of five to win the game!</h2>
+        </div>
+        <div class="stage">
+            <div class="player">
+
+            </div>
+            <div class="winDisplay">
+                <h2 id="round#">Round 1:</h2>
+                <h1 id="result"></h1>
+            </div>
+            <div class="computer">
+
+            </div>
+        </div>
+        <div class="board">
+            <div class="userSelect">
+                <button onClick="round(0)">🤜</button>
+                <button onClick="round(1)">🤚</button>
+                <button onClick="round(2)">✌</button>
+            </div>
+            <div class="computerSelect">
+                <button id="0">🤜</button>
+                <button id="1">🤚</button>
+                <button id="2">✌</button>
+            </div>
+        </div>
+    </body>
+</html>
