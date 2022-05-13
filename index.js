@@ -2,12 +2,14 @@ const getChoice = a => a === 0 ? "🤜" : (a === 1 ? "🤚": "✌");
 const getComputerChoice = () => (a = parseInt(Math.random() * 3), getChoice(a));
 const getWinner = (a, b) => ((win = {"🤜": "✌", "🤚":"🤜", "✌": "🤚"}), win[a] === b ? "Win" : a === b ? "Tie" : "Lose" );
 const getFinalWinner = (a, b) => a > b ? "You Won!" : "You didn't win :(";
-let roundCount = 1;
+let roundCount = 0;
 let computerTally = 0;
 let playerTally = 0;
 const addWin = a => a === "Win" ? playerTally++ : a === "Lose" ? computerTally++ : "nothing";
 let previousComputerChoice = 0;
 function round(playerChoice){
+    roundCount += 1;
+    document.getElementById("round#").innerText = "Round " + roundCount + ":";
     document.getElementById(previousComputerChoice % 3).classList.remove("active");
     myElement = document.getElementsByClassName("userSelect")[0];
     for (let i = 0; i < myElement.children.length; i++) {
@@ -29,14 +31,16 @@ function round(playerChoice){
             document.getElementsByClassName("computer")[0].innerText = computerChoice;
             document.getElementById("result").innerText = (getWinner(getChoice(playerChoice),computerChoice));
             addWin(getWinner(getChoice(playerChoice),computerChoice));
-            roundCount += 1;
-            document.getElementById("round#").innerText = "Round " + roundCount + ":";
+            document.getElementById("score").innerText = "" + playerTally + " - " + computerTally;
             for (let i = 0; i < myElement.children.length; i++) {
                 myElement.children[i].disabled = false;
             }
-            if(roundCount === 6){
+            if(roundCount === 5){
                 document.getElementById("round#").innerText = "Game Over!";
                 document.getElementById("result").innerText = getFinalWinner(playerTally, computerTally);
+                for (let i = 0; i < myElement.children.length; i++) {
+                    myElement.children[i].disabled = true;
+                }
             }
         }, computerRand * timeout)
 
