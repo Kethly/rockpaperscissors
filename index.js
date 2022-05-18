@@ -15,7 +15,7 @@ function round(playerChoice){
     for (let i = 0; i < myElement.children.length; i++) {
         myElement.children[i].disabled = true;
     }
-    if(roundCount <= 5){
+    if(playerTally <= 5 && computerTally <= 5){
         document.getElementsByClassName("player")[0].innerText = getChoice(playerChoice);
         let computerRand = parseInt(Math.random() * 10) + 7;
         let computerChoice = getChoice((computerRand - 1) % 3);
@@ -35,7 +35,7 @@ function round(playerChoice){
             for (let i = 0; i < myElement.children.length; i++) {
                 myElement.children[i].disabled = false;
             }
-            if(roundCount === 5){
+            if(playerTally === 5 || computerTally === 5){
                 document.getElementById("round#").innerText = "Game Over!";
                 document.getElementById("result").innerText = getFinalWinner(playerTally, computerTally);
                 for (let i = 0; i < myElement.children.length; i++) {
